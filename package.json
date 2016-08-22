@@ -1,0 +1,27 @@
+{
+  "name": "pow",
+  "version": "1.0.0",
+  "description": "Audio Player from POST requested audio file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterbsmith2/pow.git"
+  },
+  "keywords": [
+    "audio",
+    "post",
+    "audio",
+    "player",
+    "audiocontext",
+    "audionode"
+  ],
+  "author": "Peter B Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peterbsmith2/pow/issues"
+  },
+  "homepage": "https://github.com/peterbsmith2/pow#readme"
+}
