@@ -6,12 +6,21 @@ module.exports = function(grunt){
       build: ['build/']
     },
     cssmin:{
-      target: {
+      build: {
         files: [{
           expand: true,
           cwd: 'build/',
           src: ['*.css', '!*.min.css'],
           dest: 'build/',
+          ext: '.min.css'
+        }]
+      },
+      demo: {
+        files: [{
+          expand: true,
+          cwd: 'demo/',
+          src: ['*.css', '!*.min.css'],
+          dest: 'demo/',
           ext: '.min.css'
         }]
       }
@@ -27,12 +36,28 @@ module.exports = function(grunt){
         },
         src: ['src/app.module.js','src/*.js'],
         dest: 'build/pow.min.js'
+      },
+      demo: {
+        options: {
+          mangle: false,
+          compress: false,
+          preserveComments: false,
+          header: "",
+          footer: "",
+        },
+        src: ['src/app.module.js','src/*.js'],
+        dest: 'demo/pow.min.js'
       }
     },
     copy: {
       build: {
         files: [
           {expand: true, cwd:'src/', src: ['pow.css', 'player.html'], dest:'build/'}
+        ]
+      },
+      demo: {
+        files: [
+          {expand: true, cwd:'src/', src: ['pow.css', 'player.html'], dest:'demo/'}
         ]
       }
     }
@@ -45,5 +70,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   //Register tasks
-  grunt.registerTask('default', ['clean:build','uglify:build','copy:build','cssmin']);
+  grunt.registerTask('default', ['clean:build','uglify:build','copy:build','cssmin:build']);
+  grunt.registerTask('demo', ['uglify:demo','copy:demo','cssmin:demo']);
 };
