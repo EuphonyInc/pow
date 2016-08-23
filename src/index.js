@@ -1,6 +1,6 @@
 var app = angular.module('pow', []);
 
-app.directive('pow', function(voiceFactory) {
+app.directive('pow', function($pow, voiceFactory) {
   return {
     restrict: 'E',
     templateUrl: 'player.html',
@@ -46,7 +46,7 @@ app.directive('pow', function(voiceFactory) {
         this.ac.decodeAudioData(arrayBuffer, function( audioBuffer ) {
           this.message.innerHTML = 'Loaded';
           this.buffer = audioBuffer;
-          this.wav = audioBufferToWav(audioBuffer);
+          this.wav = $pow.audioBufferToWav(audioBuffer);
           this.draw();
           this.loading = false;
         }.bind(this));
@@ -172,7 +172,7 @@ app.directive('pow', function(voiceFactory) {
         }
         requestAnimationFrame(this.draw.bind(this));
       };
-      var url = 'http://static.kevvv.in/sounds/callmemaybe.mp3'
+      var url = 'http://static.kevvv.in/sounds/callmemaybe.mp3';
 
       // create a new instance of the player and get things started
       window.player = new Player(element);
