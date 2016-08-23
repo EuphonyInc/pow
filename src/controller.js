@@ -1,4 +1,6 @@
-app.controller('AudioCtrl',function($scope, voiceFactory) {
+(function() {
+  'use strict';
+angular.module('pow').controller('AudioCtrl',function($scope, voiceFactory) {
   $scope.data = {};
 
   $scope.data.text = "Hello";
@@ -18,3 +20,5 @@ app.controller('AudioCtrl',function($scope, voiceFactory) {
     });
   };
 });
+
+})();

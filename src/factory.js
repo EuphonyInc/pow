@@ -1,5 +1,6 @@
-
-app.factory('voiceFactory',['$http', '$sce', '$httpParamSerializerJQLike' ,function($http, $sce, $httpParamSerializerJQLike){
+(function() {
+  'use strict';
+angular.module('pow').factory('voiceFactory',['$http', '$sce', '$httpParamSerializerJQLike' ,function($http, $sce, $httpParamSerializerJQLike){
 
   function getSrc(voicesrc,text){
     return $sce.trustAsResourceUrl("http://52.32.197.208:59125/process?INPUT_TEXT="+text+"&INPUT_TYPE=TEXT&OUTPUT_TYPE=AUDIO&LOCALE=en_US&AUDIO=WAVE_FILE&VOICE="+voicesrc+"");
@@ -34,4 +35,5 @@ app.factory('voiceFactory',['$http', '$sce', '$httpParamSerializerJQLike' ,funct
     }
   };
 
-}])
+}]);
+})();
