@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Testing Audio</title>
-    <link rel="stylesheet" href="main.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="pow.css" media="screen" title="no title" charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
     <script src="https://use.fontawesome.com/ae3b95e57e.js"></script>
   </head>
@@ -11,9 +11,7 @@
     <input type="text" ng-model="data.text">
     <button ng-click="update()">Update</button>
     <pow-player data-array-buffer="data.arrayBuffer"></pow-player>
-    <script src="app.module.js"></script>
-    <script src="pow.directive.js"></script>
-    <script src="pow.factory.js"></script>
+    <script src="../build/pow.min.js"></script>
     <script src="controller.js"></script>
     <script src="factory.js" charset="utf-8"></script>
   </body>

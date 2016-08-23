@@ -4,7 +4,9 @@
   "description": "Audio Player from POST requested audio file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "grunt",
+    "demo": "node demo/server.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,8 @@
   "homepage": "https://github.com/peterbsmith2/pow#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1"
   }
 }
