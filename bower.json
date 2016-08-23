@@ -1,0 +1,25 @@
+{
+  "name": "pow",
+  "description": "Audio Player from POST requested audio file",
+  "main": "index.js",
+  "authors": [
+    "Peter B Smith"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "audio",
+    "post",
+    "audio",
+    "player",
+    "audiocontext",
+    "audionode"
+  ],
+  "homepage": "https://github.com/peterbsmith2/pow",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
