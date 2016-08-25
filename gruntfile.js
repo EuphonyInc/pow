@@ -57,7 +57,7 @@ module.exports = function(grunt){
       },
       demo: {
         files: [
-          {expand: true, cwd:'src/', src: ['pow.css', 'player.html'], dest:'demo/'}
+          {expand: true, cwd:'src/', src: ['pow.css'], dest:'demo/'}
         ]
       }
     }
@@ -71,5 +71,5 @@ module.exports = function(grunt){
 
   //Register tasks
   grunt.registerTask('default', ['clean:build','uglify:build','copy:build','cssmin:build']);
-  grunt.registerTask('demo', ['uglify:demo','copy:demo','cssmin:demo']);
+  grunt.registerTask('demo', ['uglify:demo']);
 };
