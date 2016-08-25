@@ -1,5 +1,4 @@
-# pow
-:punch: Pow!
+# :punch: Pow!
 ---
 Pow! is an angular directive audio player for POST requested audio.
 
