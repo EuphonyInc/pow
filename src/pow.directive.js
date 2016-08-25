@@ -5,7 +5,7 @@
 (function() {
   'use strict';
 
-  angular.module('pow').directive('pow', function($pow, voiceFactory) {
+  angular.module('pow').directive('pow', function($pow) {
     return {
       restrict: 'E',
       templateUrl: 'player.html',
