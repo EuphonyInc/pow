@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "grunt",
-    "demo": "node demo/server.js"
+    "demo": "grunt demo && node demo/server.js"
   },
   "repository": {
     "type": "git",
