@@ -10,6 +10,7 @@ bower install pow
 ## Run the Demo
 
 ```bash
+npm install
 npm run demo
 ```
 
