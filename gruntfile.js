@@ -5,6 +5,16 @@ module.exports = function(grunt){
     clean:{
       build: ['build/']
     },
+    ngAnnotate: {
+      options: {
+        singleQuotes: true
+      },
+      app: {
+        files: {
+          './build/pow.js': ['./src/*.js']
+        }
+      }
+    },
     uglify: {
       build: {
         options: {
@@ -14,7 +24,7 @@ module.exports = function(grunt){
           header: "",
           footer: "",
         },
-        src: ['src/app.module.js','src/*.js'],
+        src: ['build/pow.js'],
         dest: 'build/pow.min.js'
       },
       demo: {
@@ -32,10 +42,11 @@ module.exports = function(grunt){
   });
 
   //Load the plugins
+  grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   //Register tasks
-  grunt.registerTask('default', ['clean:build','uglify:build']);
+  grunt.registerTask('default', ['clean:build','ngAnnotate','uglify:build']);
   grunt.registerTask('demo', ['uglify:demo']);
 };
