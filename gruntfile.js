@@ -5,26 +5,6 @@ module.exports = function(grunt){
     clean:{
       build: ['build/']
     },
-    cssmin:{
-      build: {
-        files: [{
-          expand: true,
-          cwd: 'build/',
-          src: ['*.css', '!*.min.css'],
-          dest: 'build/',
-          ext: '.min.css'
-        }]
-      },
-      demo: {
-        files: [{
-          expand: true,
-          cwd: 'demo/',
-          src: ['*.css', '!*.min.css'],
-          dest: 'demo/',
-          ext: '.min.css'
-        }]
-      }
-    },
     uglify: {
       build: {
         options: {
@@ -48,28 +28,14 @@ module.exports = function(grunt){
         src: ['src/app.module.js','src/*.js'],
         dest: 'demo/pow.min.js'
       }
-    },
-    copy: {
-      build: {
-        files: [
-          {expand: true, cwd:'src/', src: ['pow.css', 'player.html'], dest:'build/'}
-        ]
-      },
-      demo: {
-        files: [
-          {expand: true, cwd:'src/', src: ['pow.css'], dest:'demo/'}
-        ]
-      }
     }
   });
 
   //Load the plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   //Register tasks
-  grunt.registerTask('default', ['clean:build','uglify:build','copy:build','cssmin:build']);
+  grunt.registerTask('default', ['clean:build','uglify:build']);
   grunt.registerTask('demo', ['uglify:demo']);
 };
