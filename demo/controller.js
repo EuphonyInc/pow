@@ -6,7 +6,7 @@
     $scope.data.text = "Hello";
     $scope.data.voice = "en_US";
     $scope.data.audioType = "WAVE_FILE";
-    $scope.data.audio = {};
+    $scope.data.arrayBuffer = {};
     $scope.update = function() {
       console.log('okay')
       $scope.data.audio = {

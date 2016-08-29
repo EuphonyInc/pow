@@ -5,7 +5,7 @@
 (function() {
   'use strict';
 
-  angular.module('pow').directive('pow', function($pow) {
+  angular.module('pow').directive('pow', function($pow, $timeout) {
     return {
       restrict: 'E',
       templateUrl: 'player.html',
@@ -13,8 +13,18 @@
       link: function(scope, element, attrs, controller) {
 
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
-          window.player.fetch(arrayBuffer);
-        }, true);
+          console.log(scope.data.arrayBuffer);
+          // debugger;
+          if (scope.data.arrayBuffer.__proto__.toString() === "[object ArrayBuffer]") {
+            window.player.fetch(arrayBuffer);
+
+            $timeout(function() {
+              scope.data.arrayBuffer = {};
+            }, 0, false);
+          }
+
+
+        });
 
         function Player ( el ) {
           this.ac = new ( window.AudioContext || webkitAudioContext )();
