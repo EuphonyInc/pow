@@ -62,6 +62,7 @@
             this.message.innerHTML = 'Loaded';
             this.buffer = audioBuffer;
             this.wav = $pow.audioBufferToWav(audioBuffer);
+            this.position = 0;
             this.draw();
             this.loading = false;
           }.bind(this));
