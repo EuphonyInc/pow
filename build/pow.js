@@ -10,7 +10,7 @@ angular.module('pow', [])
 (function() {
   'use strict';
 
-  angular.module('pow').directive('pow', ['$pow', function($pow) {
+  angular.module('pow').directive('pow', ['$pow', '$timeout', function($pow, $timeout) {
     return {
       restrict: 'E',
       templateUrl: 'player.html',
@@ -18,8 +18,17 @@ angular.module('pow', [])
       link: function(scope, element, attrs, controller) {
 
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
-          window.player.fetch(arrayBuffer);
-        }, true);
+
+          if (scope.data.arrayBuffer.__proto__.toString() === "[object ArrayBuffer]") {
+            window.player.fetch(arrayBuffer);
+
+            $timeout(function() {
+              scope.data.arrayBuffer = {};
+            }, 0, false);
+          }
+
+
+        });
 
         function Player ( el ) {
           this.ac = new ( window.AudioContext || webkitAudioContext )();
@@ -57,6 +66,7 @@ angular.module('pow', [])
             this.message.innerHTML = 'Loaded';
             this.buffer = audioBuffer;
             this.wav = $pow.audioBufferToWav(audioBuffer);
+            this.position = 0;
             this.draw();
             this.loading = false;
           }.bind(this));

@@ -13,8 +13,7 @@
       link: function(scope, element, attrs, controller) {
 
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
-          console.log(scope.data.arrayBuffer);
-          // debugger;
+
           if (scope.data.arrayBuffer.__proto__.toString() === "[object ArrayBuffer]") {
             window.player.fetch(arrayBuffer);
 
