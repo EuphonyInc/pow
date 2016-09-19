@@ -29,14 +29,12 @@
           this.ac = new ( window.AudioContext || webkitAudioContext )();
           this.url = url;
           this.el = el;
-          this.button = el.children()[1].children[0];
-          this.downloadButton = el.children()[1].children[2];
-          this.track = el.children()[1].children[1];
-          this.progress = el.children()[1].children[1].children[0];
-          this.scrubber = el.children()[1].children[1].children[1];
-          this.message = el.children()[0];
+          this.button = el.children()[0].children[0];
+          this.downloadButton = el.children()[0].children[2];
+          this.track = el.children()[0].children[1];
+          this.progress = el.children()[0].children[1].children[0];
+          this.scrubber = el.children()[0].children[1].children[1];
           this.loading = true;
-          this.message.innerHTML = 'Loading';
           this.bindEvents();
         }
 
@@ -58,7 +56,6 @@
 
         Player.prototype.decode = function( arrayBuffer ) {
           this.ac.decodeAudioData(arrayBuffer, function( audioBuffer ) {
-            this.message.innerHTML = 'Loaded';
             this.buffer = audioBuffer;
             this.wav = $pow.audioBufferToWav(audioBuffer);
             this.position = 0;
