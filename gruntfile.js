@@ -1,5 +1,5 @@
 module.exports = function(grunt){
-  //Configure task(s)
+  // Configure task(s)
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean:{
@@ -41,12 +41,12 @@ module.exports = function(grunt){
     }
   });
 
-  //Load the plugins
+  // Load the plugins
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  //Register tasks
+  // Register tasks
   grunt.registerTask('default', ['clean:build','ngAnnotate','uglify:build']);
   grunt.registerTask('demo', ['uglify:demo']);
 };
