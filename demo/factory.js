@@ -12,7 +12,7 @@
         method: 'POST',
         url: "http://api.euphonyinc.com/api/v1/voices",
         headers: {
-          apikey: '3fb03ee81e0a45cbaba0396cd700bff8',
+          apikey: '973ed1eac7664149be302f7acd155ec1',
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         data: $httpParamSerializerJQLike({
