@@ -25,6 +25,19 @@ npm install
 npm run demo
 ```
 
+## Developing 
+> This is very much a work in progress
+
+To modify `player.html`:
+1. Make changes you desire
+2. Use [inline-css](http://templates.mailchimp.com/resources/inline-css/) to inline the css
+3. Copy the css-inlined HTML (only the div in the inline-css output, not the style tag)
+4. Use [HTML minify](http://www.willpeavy.com/minifier/) to minify the copied HTML
+5. Copy the minified CSS into `app.module.js` in place of the existing HTML on `3`
+6. `npm dev` to test your changes (updates the demo and starts a server)
+7. `npm build` when you're done
+8. Commit according to the [contributing documentation](http://www.github.com/EuphonyInc/pow/blob/master/CONTRIBUTING.md)
+
 Open browser to `localhost:3001`
 
 ## Developing 
