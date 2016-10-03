@@ -14,12 +14,16 @@
 
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
 
-          if (scope.data.arrayBuffer.__proto__.toString() === "[object ArrayBuffer]") {
-            window.player.fetch(arrayBuffer);
+          if(scope.data.arrayBuffer){
 
-            $timeout(function() {
-              scope.data.arrayBuffer = {};
-            }, 0, false);
+            if (scope.data.arrayBuffer.__proto__.toString() === "[object ArrayBuffer]") {
+              window.player.fetch(arrayBuffer);
+
+              $timeout(function() {
+                scope.data.arrayBuffer = {};
+              }, 0, false);
+            }
+
           }
 
 
