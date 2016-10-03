@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Testing Audio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://use.fontawesome.com/16fcb4adba.js"></script>
+    
+  </head>
+  
+  <body>
+    <!-- Include a input for text -->
+    <div class="container">
+
+    <div class="input">
+        <div class="input-group">
+            <input id="input" type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button id="update" class="btn btn-default" type="button">Update</button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
+
+    <div id="player" class="player">
+      <!-- <div >
+        <p id="message">Message</p>
+      </div> -->
+      <div class="controls">
+        <i class="fa fa-play " aria-hidden="true"></i>
+        <div class="track">
+          <div class="progress">
+            <div class="scrubber">
+            </div> <!--scrubber-->
+          </div> <!--progress-->
+        </div> <!--track-->
+        <i class="fa fa-download downloadButton" aria-hidden="true"></i>
+      </div> <!--controls-->
+    </div> <!--player-->
+
+  </div> <!--container-->
+    
+    <script src="js/main.js"></script>
+  </body>
+</html>
