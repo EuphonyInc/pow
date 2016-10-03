@@ -81,6 +81,9 @@ angular.module('pow', [])
 
         Player.prototype.play = function( position ) {
           this.connect();
+          if(this.position === this.buffer.duration){
+            this.position = 0;
+          }
           this.position = typeof position === 'number' ? position : this.position || 0;
           this.startTime = this.ac.currentTime - ( this.position || 0 );
           this.source.start(this.ac.currentTime, this.position);
