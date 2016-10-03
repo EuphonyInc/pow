@@ -18,11 +18,15 @@
         data: $httpParamSerializerJQLike({
           text: opts.text,
           audioType: opts.audioType,
+          locale: opts.locale,
           voice: opts.voice
         }),
         responseType: 'arraybuffer'
       }).then(function(response) {
         return response.data;
+      })
+      .catch(function(err){
+        console.log(err);
       });
     }
 
