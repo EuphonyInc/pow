@@ -30,6 +30,7 @@
           this.url = url;
           this.el = el;
           this.button = el.children()[0].children[0];
+          this.svgpath = el.children()[0].children[0].children[0];
           this.downloadButton = el.children()[0].children[2];
           this.track = el.children()[0].children[1];
           this.progress = el.children()[0].children[1].children[0];
@@ -83,6 +84,15 @@
           this.startTime = this.ac.currentTime - ( this.position || 0 );
           this.source.start(this.ac.currentTime, this.position);
           this.playing = true;
+
+          console.log('path',this.svgpath);
+          // var path = document.createElement("path");
+          // path.d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z";
+        //  var child = document.getElementById("playButton").childNodes[0];
+          // var parentDiv = child.parentNode;
+          // parentDiv.replaceChild(child,path);
+        //  child.setAttribute("d", "M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z");
+        //  console.log('child',child);
         };
 
         Player.prototype.pause = function() {
@@ -175,11 +185,13 @@
           var progress = ( this.updatePosition() / this.buffer.duration ),
             width = this.track.offsetWidth;
           if ( this.playing ) {
-            this.button.classList.add('fa-pause');
-            this.button.classList.remove('fa-play');
+          //this.button.innerHTML = '<path d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z"/>';
+            //this.button.classList.add('fa-pause');
+            //this.button.classList.remove('fa-play');
           } else {
-            this.button.classList.add('fa-play');
-            this.button.classList.remove('fa-pause');
+            //this.button.innerHTML = '<path d="M36.068 20.176l-29-20C6.761-0.035 6.363-0.057 6.035 0.114 5.706 0.287 5.5 0.627 5.5 0.999v40c0 0.372 0.206 0.713 0.535 0.886 0.146 0.076 0.306 0.114 0.465 0.114 0.199 0 0.397-0.06 0.568-0.177l29-20c0.271-0.187 0.432-0.494 0.432-0.823S36.338 20.363 36.068 20.176z"/>';
+            //this.button.classList.add('fa-play');
+            //this.button.classList.remove('fa-pause');
           }
           this.progress.style.width = ( progress * width ) + 'px';
           if ( !this.dragging ) {
