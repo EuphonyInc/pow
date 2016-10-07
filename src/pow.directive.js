@@ -78,7 +78,7 @@
         Player.prototype.play = function( position ) {
           this.connect();
           if(this.position === this.buffer.duration){
-            this.position = 0;
+           this.position = 0;
           }
           this.position = typeof position === 'number' ? position : this.position || 0;
           this.startTime = this.ac.currentTime - ( this.position || 0 );
@@ -86,11 +86,10 @@
           this.playing = true;
 
           console.log('path',this.svgpath);
-          // var path = document.createElement("path");
-          // path.d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z";
-        //  var child = document.getElementById("playButton").childNodes[0];
-          // var parentDiv = child.parentNode;
-          // parentDiv.replaceChild(child,path);
+           //var path = document.createElement("path");
+           //path.d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z";
+           //var child = document.getElementById("playButton").childNodes[0];
+           //document.getElementById("playButton").replaceChild(child,path);
         //  child.setAttribute("d", "M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z");
         //  console.log('child',child);
         };
@@ -185,7 +184,7 @@
           var progress = ( this.updatePosition() / this.buffer.duration ),
             width = this.track.offsetWidth;
           if ( this.playing ) {
-          //this.button.innerHTML = '<path d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z"/>';
+            //this.button.innerHTML= '<path d="M1664 192v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45zm-896 0v1408q0 26-19 45t-45 19h-512q-26 0-45-19t-19-45v-1408q0-26 19-45t45-19h512q26 0 45 19t19 45z"/>';
             //this.button.classList.add('fa-pause');
             //this.button.classList.remove('fa-play');
           } else {
