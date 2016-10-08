@@ -34,7 +34,6 @@ angular.module('pow', [])
 
         function Player ( el ) {
           this.ac = new ( window.AudioContext || webkitAudioContext )();
-          this.url = url;
           this.el = el;
           this.button = el.children()[0].children[0];
           this.downloadButton = el.children()[0].children[2];
