@@ -1,6 +1,6 @@
 {
   "name": "pow",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "description": "Audio Player from POST requested audio file",
   "main": "index.js",
   "authors": [
