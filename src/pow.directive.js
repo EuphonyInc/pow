@@ -11,13 +11,13 @@
       templateUrl: 'player.html',
       replace: true,
       link: function(scope, element, attrs, controller) {
-
+        var num = scope.$eval(attrs.playernumber);
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
 
           if(scope.data.arrayBuffer){
 
             if (scope.data.arrayBuffer.__proto__.toString() === "[object ArrayBuffer]") {
-              window.player.fetch(arrayBuffer);
+              currentplayer.fetch(arrayBuffer);
 
               $timeout(function() {
                 scope.data.arrayBuffer = {};
@@ -25,8 +25,6 @@
             }
 
           }
-
-
         });
 
         function Player ( el ) {
@@ -191,10 +189,10 @@
           }
           requestAnimationFrame(this.draw.bind(this));
         };
-        var url = 'http://static.kevvv.in/sounds/callmemaybe.mp3';
 
+        var currentplayer = window.player+num;
         // create a new instance of the player and get things started
-        window.player = new Player(element);
+        currentplayer = new Player(element);
       }
 
     }
