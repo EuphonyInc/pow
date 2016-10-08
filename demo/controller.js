@@ -9,7 +9,6 @@
     $scope.data.text = "Hello";
     $scope.data.locale = "en_US";
     $scope.data.audioType = "WAVE_FILE";
-    $scope.data.arrayBuffer = {};
     $scope.data.loadBuffers = [];
     $scope.update = function(num) {
       $scope.data.audio = {
@@ -20,10 +19,8 @@
       };
 
       voiceFactory.getAudio($scope.data.audio).then(function(arrayBuffer) {
-        $scope.data.arrayBuffer = arrayBuffer;
         $scope.data.loadBuffers[num] = $scope.data.arrayBuffer;
       });
-      console.log($scope.data.loadBuffers);
     };
   });
 
