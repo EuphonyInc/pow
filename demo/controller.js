@@ -11,15 +11,15 @@
     $scope.data.audioType = "WAVE_FILE";
     $scope.data.loadBuffers = [];
     $scope.update = function(num) {
+      console.log("updating audio")
       $scope.data.audio = {
         text: $scope.data.text,
-        locale: $scope.data.locale,
-        audioType: $scope.data.audioType,
-        voice: "dawn_monotone_44100"
+        voice: "Dawn Happy"
       };
 
       voiceFactory.getAudio($scope.data.audio).then(function(arrayBuffer) {
-        $scope.data.loadBuffers[num] = $scope.data.arrayBuffer;
+        console.log('got audio')
+        $scope.data.loadBuffers[num] = arrayBuffer;
       });
     };
   });
