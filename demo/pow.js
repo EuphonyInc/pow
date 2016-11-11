@@ -28,7 +28,7 @@ angular.module('pow', [])
 
           if(audio){
             if (audio.__proto__.toString() === "[object ArrayBuffer]") {
-              currentplayer.fetch(arrayBuffer);
+              window.players[playerIndex].fetch(arrayBuffer);
 
               $timeout(function() {
                 eval(str)
@@ -201,9 +201,16 @@ angular.module('pow', [])
           requestAnimationFrame(this.draw.bind(this));
         };
 
-        var currentplayer = window.player+num;
         // create a new instance of the player and get things started
-        currentplayer = new Player(element);
+        var playerIndex;
+        if (window.players) {
+          window.players.push(new Player(element));
+          playerIndex = window.players.length - 1;
+        } else {
+          window.players = [];
+          window.players.push(new Player(element));
+          playerIndex = window.players.length - 1;
+        }
       }
 
     }

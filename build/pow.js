@@ -18,12 +18,17 @@ angular.module('pow', [])
       link: function(scope, element, attrs, controller) {
         var num = scope.$eval(attrs.playernumber);
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
+          console.log('scope', scope)
+          console.log('element', element)
+          console.log('attrs', attrs)
+          console.log('controller', controller)
+          console.log(attrs.arrayBuffer)
           var str = "scope." + attrs.arrayBuffer;
           var audio = eval(str);
 
           if(audio){
             if (audio.__proto__.toString() === "[object ArrayBuffer]") {
-              currentplayer.fetch(arrayBuffer);
+              window.players[playerIndex].fetch(arrayBuffer);
 
               $timeout(function() {
                 eval(str)
@@ -196,9 +201,16 @@ angular.module('pow', [])
           requestAnimationFrame(this.draw.bind(this));
         };
 
-        var currentplayer = window.player+num;
         // create a new instance of the player and get things started
-        currentplayer = new Player(element);
+        var playerIndex;
+        if (window.players) {
+          window.players.push(new Player(element));
+          playerIndex = window.players.length - 1;
+        } else {
+          window.players = [];
+          window.players.push(new Player(element));
+          playerIndex = window.players.length - 1;
+        }
       }
 
     }
@@ -208,7 +220,7 @@ angular.module('pow', [])
 /* Forked from https://github.com/Jam3/audiobuffer-to-wav */
 (function() {
   'use strict';
-
+  
   angular.module('pow').factory('$pow', function() {
     function encodeWAV (samples, format, sampleRate, numChannels, bitDepth) {
       var bytesPerSample = bitDepth / 8;
