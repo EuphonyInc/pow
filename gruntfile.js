@@ -13,6 +13,11 @@ module.exports = function(grunt){
         files: {
           './build/pow.js': ['./src/*.js']
         }
+      },
+      dev: {
+        files: {
+          './demo/pow.js': ['./src/*.js']
+        }
       }
     },
     uglify: {
@@ -47,6 +52,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Register tasks
-  grunt.registerTask('default', ['clean:build','ngAnnotate','uglify:build']);
-  grunt.registerTask('demo', ['uglify:demo']);
+  grunt.registerTask('default', ['clean:build','ngAnnotate:app','uglify:build']);
+  grunt.registerTask('demo', ['ngAnnotate:dev', 'uglify:demo']);
 };

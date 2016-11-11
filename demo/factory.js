@@ -7,13 +7,11 @@
         method: 'POST',
         url: "http://api.euphonyinc.com/api/v1/voices",
         headers: {
-          apikey: 'debf1ac706e04ca7879be3b6547175ba',
+          apikey: '6e43963fe1ea4e45813d631c8c5ac798',
           'Content-Type': 'application/json'
         },
         data: {
           text: opts.text,
-          audioType: opts.audioType,
-          locale: opts.locale,
           voice: opts.voice
         },
         responseType: 'arraybuffer'
