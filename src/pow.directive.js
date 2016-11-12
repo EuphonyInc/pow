@@ -24,10 +24,11 @@
           if(audio){
             if (audio.__proto__.toString() === "[object ArrayBuffer]") {
               window.players[playerIndex].fetch(arrayBuffer);
+              var para = document.createElement("div");
+              window.players[playerIndex].el[0].replaceChild(para, window.players[playerIndex].el[0].children[0]);
 
               $timeout(function() {
-                eval(str)
-                scope.data.arrayBuffer = {};
+
               }, 0, false);
             }
 
@@ -37,11 +38,12 @@
         function Player ( el ) {
           this.ac = new ( window.AudioContext || webkitAudioContext )();
           this.el = el;
-          this.button = el.children()[0].children[0];
-          this.downloadButton = el.children()[0].children[2];
-          this.track = el.children()[0].children[1];
-          this.progress = el.children()[0].children[1].children[0];
-          this.scrubber = el.children()[0].children[1].children[1];
+          this.overlay = el.children()[0];
+          this.button = el.children()[1].children[0];
+          this.downloadButton = el.children()[1].children[2];
+          this.track = el.children()[1].children[1];
+          this.progress = el.children()[1].children[1].children[0];
+          this.scrubber = el.children()[1].children[1].children[1];
           this.loading = true;
           this.bindEvents();
         }
