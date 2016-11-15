@@ -71,18 +71,33 @@
     .player-no-data {
         height: 43px;
         width: 345px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0);
         position: absolute;
         z-index: 1;
         color: #fff;
         text-align: center;
         font-family: sans-serif;
     }
+
+    .scrubber-no-data {
+        position: absolute;
+        width: 228px;
+        margin: 17px 0 0px 58px;
+        height: 12px;
+        z-index: 1;
+        background: repeating-linear-gradient(
+          45deg,
+          #E0E0E0,
+          #E0E0E0 10px,
+          #757575 10px,
+          #757575 20px
+        );
+   }
 </style>
 
 <div class="player">
     <div class="player-no-data">
-        <p>No Audio Loaded</p>
+        <div class="scrubber-no-data"></div>
     </div>
     <div class="controls">
         <svg id="playButton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.999 41.999">

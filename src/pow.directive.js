@@ -26,7 +26,8 @@
               window.players[playerIndex].fetch(arrayBuffer);
               var para = document.createElement("div");
               window.players[playerIndex].el[0].replaceChild(para, window.players[playerIndex].el[0].children[0]);
-
+              //window.players[playerIndex].el[0].children[1].children[1].classList.remove("scrubber-no-data");
+              //window.players[playerIndex].el[0].children[1].children[1].removeAttribute("style");
               $timeout(function() {
 
               }, 0, false);
@@ -39,6 +40,7 @@
           this.ac = new ( window.AudioContext || webkitAudioContext )();
           this.el = el;
           this.overlay = el.children()[0];
+          this.scrubberovaerlay = el.children()[0].children[0];
           this.button = el.children()[1].children[0];
           this.downloadButton = el.children()[1].children[2];
           this.track = el.children()[1].children[1];
