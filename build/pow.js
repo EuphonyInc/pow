@@ -18,11 +18,6 @@ angular.module('pow', [])
       link: function(scope, element, attrs, controller) {
         var num = scope.$eval(attrs.playernumber);
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
-          console.log('scope', scope)
-          console.log('element', element)
-          console.log('attrs', attrs)
-          console.log('controller', controller)
-          console.log(attrs.arrayBuffer)
           var str = "scope." + attrs.arrayBuffer;
           var audio = eval(str);
 
