@@ -11,25 +11,48 @@
       templateUrl: 'player.html',
       replace: true,
       link: function(scope, element, attrs, controller) {
-        var num = scope.$eval(attrs.playernumber);
+
+        // create a new instance of the player and get things started
+
+        var playerIndex;
+
+        // we use the global scope here to store an array of players. Due to
+        // browser limitations, the maximum players on a page is 6.
+        if (window.players) {
+
+          window.players.push(new Player(element));
+          playerIndex = window.players.length - 1;
+
+        } else {
+
+          window.players = [];
+          window.players.push(new Player(element));
+          playerIndex = window.players.length - 1;
+
+        }
+
+        // watch the array-buffer attribute on the directive for changes to the
+        // value.
         scope.$watch(attrs.arrayBuffer, function(arrayBuffer) {
-          console.log('scope', scope)
-          console.log('element', element)
-          console.log('attrs', attrs)
-          console.log('controller', controller)
-          console.log(attrs.arrayBuffer)
+
+          // we use eval to grab the audio off a dynamically changing value of
+          // `attrs.arrayBuffer`
           var str = "scope." + attrs.arrayBuffer;
           var audio = eval(str);
 
           if(audio){
+
+            // if audio is an arrayBuffer
             if (audio.__proto__.toString() === "[object ArrayBuffer]") {
+
+              //
               window.players[playerIndex].fetch(arrayBuffer);
+
               var para = document.createElement("div");
+
               window.players[playerIndex].el[0].replaceChild(para, window.players[playerIndex].el[0].children[0]);
 
-              $timeout(function() {
-
-              }, 0, false);
+              $timeout(function() {}, 0, false);
             }
 
           }
@@ -198,16 +221,6 @@
           requestAnimationFrame(this.draw.bind(this));
         };
 
-        // create a new instance of the player and get things started
-        var playerIndex;
-        if (window.players) {
-          window.players.push(new Player(element));
-          playerIndex = window.players.length - 1;
-        } else {
-          window.players = [];
-          window.players.push(new Player(element));
-          playerIndex = window.players.length - 1;
-        }
       }
 
     }
