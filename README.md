@@ -16,7 +16,7 @@ arrayBuffer representing the audio.
 
 ```html
 <!-- in your view -->
-<pow playernumber="0" data-array-buffer="data.arrayBuffer"></pow>
+<pow data-array-buffer="data.arrayBuffer"></pow>
 ```
 
 ## Run the Demo
